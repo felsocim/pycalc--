@@ -1,9 +1,7 @@
 import unittest
-from pycalc.pycalc import PyCalc
+import pycalc.pycalc as calculator
 
 class PyCalcUnitTests(unittest.TestCase):
-  def setUp(self):
-    self.pycalc = PyCalc()
   def test_add(self):
     left = [5]
     right = [9]
@@ -13,7 +11,7 @@ class PyCalcUnitTests(unittest.TestCase):
       r = right[i]
       e = expected[i]
       with self.subTest(l=l, r=r, e=e):
-        got = self.pycalc.add(l, r)
+        got = calculator.add(l, r)
         self.assertEqual(got, e)
 
 if __name__ == '__main__':
