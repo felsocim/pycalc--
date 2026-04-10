@@ -23,6 +23,16 @@ def subtract(a, b):
   return res
 
 def multiply(a, b):
-  pass
+  if a == 0 or b == 0:
+    return 0
+  res = 0
+  tmp_a = a if a > 0 else -a
+  tmp_b = b if b > 0 else -b
+  while tmp_b > 0:
+    res += tmp_a
+    tmp_b -= 1
+  res = -res if (a < 0) ^ (b < 0) else res
+  return res
+
 def divide(a, b):
   pass
