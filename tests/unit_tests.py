@@ -35,6 +35,22 @@ class PyCalcUnitTests(unittest.TestCase):
       with self.subTest(l=l, r=r, e=e):
         got = calculator.multiply(l, r)
         self.assertEqual(got, e)
+  def test_divide(self):
+    left = [5, 2, 12, 4, 0, 0, -5, -2, -12, -4]
+    right = [7, 2, -60, -2, 7, -7, 10, 2, -24, 3]
+    expected = [0, 1, 0, -2, 0, 0, 0, -1, 0, -1]
+    for i in range(len(left)):
+      l = left[i]
+      r = right[i]
+      e = expected[i]
+      with self.subTest(l=l, r=r, e=e):
+        got = calculator.divide(l, r)
+        self.assertEqual(got, e)
+    left = [9, 0, -9]
+    for i in range(len(left)):
+      l = left[i]
+      with self.subTest(l=l):
+        self.assertRaises(ZeroDivisionError, calculator.divide, l, 0)
 
 if __name__ == '__main__':
   unittest.main()
