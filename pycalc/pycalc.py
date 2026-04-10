@@ -35,4 +35,15 @@ def multiply(a, b):
   return res
 
 def divide(a, b):
-  pass
+  if b == 0:
+    raise ZeroDivisionError
+  if a == 0:
+    return 0
+  res = 0
+  tmp_a = a if a > 0 else -a
+  tmp_b = b if b > 0 else -b
+  while (tmp_a - tmp_b) >= 0:
+    tmp_a -= tmp_b
+    res += 1
+  res = -res if (a < 0) ^ (b < 0) else res
+  return res
